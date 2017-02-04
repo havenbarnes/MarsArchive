@@ -10,5 +10,4 @@ import Foundation
 
 struct Camera {
     var name: String
-    var fullName: String
 }

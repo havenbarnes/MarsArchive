@@ -8,31 +8,34 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
     
-
+    var rovers: [Rover] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.tableView.delegate = self
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.rovers.count
     }
     
-    @IBAction func curiosityPressed(_ sender: Any) {
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RoverCell", for: indexPath)
+        
+        return cell
     }
     
-    @IBAction func opportunityPressed(_ sender: Any) {
-    
-    }
-    
-    
-    @IBAction func spiritPressed(_ sender: Any) {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func roverSelected(_ rover: Rover) {

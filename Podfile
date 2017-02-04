@@ -8,4 +8,5 @@ target 'MarsArchive' do
   # Pods for MarsArchive
   pod 'Alamofire'
   pod 'SDWebImage'
+  pod 'SwiftyJSON'
 end
