@@ -23,6 +23,7 @@
 		819E1AB11E4625C800F1832B /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB01E4625C800F1832B /* GalleryViewController.swift */; };
 		819E1AB31E46267E00F1832B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB21E46267E00F1832B /* Extensions.swift */; };
 		819E1AB91E46281B00F1832B /* CameraSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB81E46281B00F1832B /* CameraSelectionView.swift */; };
+		81F13F6D1E4689490069C11F /* GalleryViewController+Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F13F6C1E4689490069C11F /* GalleryViewController+Gallery.swift */; };
 		F082DF4738904BBA80FB71D9 /* Pods_MarsArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		819E1AB01E4625C800F1832B /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		819E1AB21E46267E00F1832B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		819E1AB81E46281B00F1832B /* CameraSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSelectionView.swift; sourceTree = "<group>"; };
+		81F13F6C1E4689490069C11F /* GalleryViewController+Gallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+Gallery.swift"; sourceTree = "<group>"; };
 		E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarsArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -85,8 +87,8 @@
 			children = (
 				810434BD1E4643DA009861B4 /* App.swift */,
 				8147E1A31E457541001925E2 /* AppDelegate.swift */,
-				819E1AB21E46267E00F1832B /* Extensions.swift */,
 				810434BB1E462E82009861B4 /* Utility.swift */,
+				819E1AB21E46267E00F1832B /* Extensions.swift */,
 				81520B171E45852B000441CF /* API */,
 				81520B101E45800F000441CF /* Model */,
 				819E1AAF1E46259C00F1832B /* Controllers */,
@@ -140,6 +142,7 @@
 			children = (
 				819E1AB01E4625C800F1832B /* GalleryViewController.swift */,
 				819E1AB81E46281B00F1832B /* CameraSelectionView.swift */,
+				81F13F6C1E4689490069C11F /* GalleryViewController+Gallery.swift */,
 			);
 			name = Gallery;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				819E1AB31E46267E00F1832B /* Extensions.swift in Sources */,
 				81520B161E4582CB000441CF /* Photo.swift in Sources */,
+				81F13F6D1E4689490069C11F /* GalleryViewController+Gallery.swift in Sources */,
 				81520B121E45802A000441CF /* Rover.swift in Sources */,
 				810434BC1E462E82009861B4 /* Utility.swift in Sources */,
 				81520B141E4581B1000441CF /* Camera.swift in Sources */,

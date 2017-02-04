@@ -51,7 +51,7 @@
                                 <rect key="frame" x="4" y="137" width="406" height="599"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RoverCell" rowHeight="100" id="NP1-WS-aMi" customClass="RoverCell" customModule="MarsArchive" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RoverCell" rowHeight="100" id="NP1-WS-aMi" customClass="RoverCell" customModule="MarsArchive" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="406" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NP1-WS-aMi" id="pfb-Cd-zQ1">
@@ -179,7 +179,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="66" height="46"/>
                                                             <color key="backgroundColor" red="0.25882352941176467" green="0.25882352941176467" blue="0.25882352941176467" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" red="0.85893876903553301" green="0.85893876903553301" blue="0.85893876903553301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="textColor" red="0.85882352941176465" green="0.85882352941176465" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -218,11 +218,47 @@
                                     <constraint firstItem="3bs-3l-ffp" firstAttribute="top" secondItem="ZE5-sy-jGo" secondAttribute="top" constant="8" id="wP8-om-RNn"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h4Q-60-q5a">
+                                <rect key="frame" x="0.0" y="52" width="414" height="504"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9fH-9K-Gyu">
+                                    <size key="itemSize" width="140" height="140"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="7JS-eY-Otl">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-fE-5gv" userLabel="Rover ImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="D0f-fE-5gv" firstAttribute="centerX" secondItem="7JS-eY-Otl" secondAttribute="centerX" id="K7n-QQ-5qL"/>
+                                            <constraint firstItem="D0f-fE-5gv" firstAttribute="centerY" secondItem="7JS-eY-Otl" secondAttribute="centerY" id="UXh-rc-Hfb"/>
+                                            <constraint firstItem="D0f-fE-5gv" firstAttribute="height" secondItem="7JS-eY-Otl" secondAttribute="height" id="Zuu-Am-8eu"/>
+                                            <constraint firstItem="D0f-fE-5gv" firstAttribute="width" secondItem="7JS-eY-Otl" secondAttribute="width" id="jvv-Nv-CfR"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gFJ-Ul-gsT" firstAttribute="top" secondItem="ZE5-sy-jGo" secondAttribute="bottom" id="1xH-NG-l3T"/>
                             <constraint firstItem="ZE5-sy-jGo" firstAttribute="width" secondItem="bZW-yf-Vse" secondAttribute="width" id="6gz-hR-utt"/>
+                            <constraint firstItem="h4Q-60-q5a" firstAttribute="top" secondItem="bZW-yf-Vse" secondAttribute="top" constant="52" id="93m-Ob-WaK"/>
+                            <constraint firstItem="ZE5-sy-jGo" firstAttribute="top" secondItem="h4Q-60-q5a" secondAttribute="bottom" id="LXR-S0-sOw"/>
+                            <constraint firstAttribute="trailing" secondItem="h4Q-60-q5a" secondAttribute="trailing" id="eBD-se-WOQ"/>
+                            <constraint firstItem="h4Q-60-q5a" firstAttribute="leading" secondItem="bZW-yf-Vse" secondAttribute="leading" id="fMZ-V2-JJ4"/>
                             <constraint firstItem="ZE5-sy-jGo" firstAttribute="centerX" secondItem="bZW-yf-Vse" secondAttribute="centerX" id="jSb-Bo-1QF"/>
                         </constraints>
                     </view>

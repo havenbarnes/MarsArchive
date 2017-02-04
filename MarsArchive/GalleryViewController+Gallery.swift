@@ -1,62 +1,15 @@
 //
-//  CameraSelectionView.swift
+//  GalleryViewController+Gallery.swift
 //  MarsArchive
 //
 //  Created by Haven Barnes on 2/4/17.
 //  Copyright © 2017 Azing. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-protocol CameraSelectionViewDelegate {
-    func cameraSelectionView(_ cameraSelectionView: CameraSelectionView, didSelectCamera camera: Camera?)
-}
-
-class CameraSelectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    var cameras: [Camera] = []
-    var selectedCamera: Camera?
-    var selectedCameraIndex = 0
-    var selectionDelegate: CameraSelectionViewDelegate!
-    
-    func setAvailableCameras(_ cameras: [Camera]?) {
-        if cameras == nil {
-            self.cameras = []
-            self.selectedCameraIndex = 0
-            updateCameraCollection()
-            return
-        }
-        
-        self.cameras = cameras!
-        
-        // If user has previously selected a camera,
-        // check to see if it is in this selected sol.
-        // If not, default to "ALL", but, maintain previous selection
-        if self.selectedCamera != nil {
-            var selectedCamExists = false
-            for index in 0..<cameras!.count {
-
-                if cameras![index].name == self.selectedCamera!.name {
-                    selectedCamExists = true
-                    self.selectedCameraIndex = index
-                }
-                
-            }
-            
-            if !selectedCamExists {
-                self.selectedCameraIndex = 0
-            }
-        }
-        updateCameraCollection()
-        
-    }
-    
-    func updateCameraCollection() {
-        self.performBatchUpdates({
-            self.reloadSections(NSIndexSet(index: 0) as IndexSet)
-        }, completion: nil)
-    }
-    
+extension GalleryViewController {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -119,9 +72,5 @@ class CameraSelectionView: UICollectionView, UICollectionViewDelegate, UICollect
             self.selectionDelegate.cameraSelectionView(self, didSelectCamera: self.cameras[indexPath.row - 1])
         }
     }
-    
-}
 
-class CameraCell: UICollectionViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
 }

@@ -9,12 +9,14 @@
 import UIKit
 import UICountingLabel
 
-class GalleryViewController: UIViewController, CameraSelectionViewDelegate {
+class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var loaded = false
     let api = App.shared.api
     var rover: Rover!
     var selectedSol: Int = 0
+    
+    @IBOutlet weak var collectionView: UICollectionView!
 
     @IBOutlet weak var solLabel: UICountingLabel!
     @IBOutlet weak var solSlider: UISlider!
@@ -88,7 +90,6 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate {
         }
         
     }
-    
     
     @IBAction func solStepperChanged(_ sender: Any) {
         
