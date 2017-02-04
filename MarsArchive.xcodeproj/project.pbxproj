@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8147E1A41E457541001925E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147E1A31E457541001925E2 /* AppDelegate.swift */; };
-		8147E1A61E457541001925E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147E1A51E457541001925E2 /* ViewController.swift */; };
+		8147E1A61E457541001925E2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8147E1A51E457541001925E2 /* FirstViewController.swift */; };
 		8147E1A91E457541001925E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8147E1A71E457541001925E2 /* Main.storyboard */; };
 		8147E1AC1E457541001925E2 /* MarsArchive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8147E1AA1E457541001925E2 /* MarsArchive.xcdatamodeld */; };
 		8147E1AE1E457541001925E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8147E1AD1E457541001925E2 /* Assets.xcassets */; };
@@ -16,7 +16,10 @@
 		81520B121E45802A000441CF /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B111E45802A000441CF /* Rover.swift */; };
 		81520B141E4581B1000441CF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B131E4581B1000441CF /* Camera.swift */; };
 		81520B161E4582CB000441CF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B151E4582CB000441CF /* Photo.swift */; };
-		81520B191E458546000441CF /* Nasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B181E458546000441CF /* Nasa.swift */; };
+		81520B191E458546000441CF /* NasaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B181E458546000441CF /* NasaAPI.swift */; };
+		819E1AB11E4625C800F1832B /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB01E4625C800F1832B /* GalleryViewController.swift */; };
+		819E1AB31E46267E00F1832B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB21E46267E00F1832B /* Extensions.swift */; };
+		819E1AB91E46281B00F1832B /* CameraSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB81E46281B00F1832B /* CameraSelectionView.swift */; };
 		F082DF4738904BBA80FB71D9 /* Pods_MarsArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +28,7 @@
 		322A0F37F45334B347469A27 /* Pods-MarsArchive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarsArchive.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarsArchive/Pods-MarsArchive.release.xcconfig"; sourceTree = "<group>"; };
 		8147E1A01E457541001925E2 /* MarsArchive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsArchive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8147E1A31E457541001925E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8147E1A51E457541001925E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8147E1A51E457541001925E2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		8147E1A81E457541001925E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8147E1AB1E457541001925E2 /* MarsArchive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarsArchive.xcdatamodel; sourceTree = "<group>"; };
 		8147E1AD1E457541001925E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,7 +37,10 @@
 		81520B111E45802A000441CF /* Rover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
 		81520B131E4581B1000441CF /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		81520B151E4582CB000441CF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		81520B181E458546000441CF /* Nasa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nasa.swift; sourceTree = "<group>"; };
+		81520B181E458546000441CF /* NasaAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NasaAPI.swift; sourceTree = "<group>"; };
+		819E1AB01E4625C800F1832B /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		819E1AB21E46267E00F1832B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		819E1AB81E46281B00F1832B /* CameraSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSelectionView.swift; sourceTree = "<group>"; };
 		E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarsArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -71,10 +77,11 @@
 		8147E1A21E457541001925E2 /* MarsArchive */ = {
 			isa = PBXGroup;
 			children = (
+				8147E1A31E457541001925E2 /* AppDelegate.swift */,
+				819E1AB21E46267E00F1832B /* Extensions.swift */,
 				81520B171E45852B000441CF /* API */,
 				81520B101E45800F000441CF /* Model */,
-				8147E1A31E457541001925E2 /* AppDelegate.swift */,
-				8147E1A51E457541001925E2 /* ViewController.swift */,
+				819E1AAF1E46259C00F1832B /* Controllers */,
 				8147E1A71E457541001925E2 /* Main.storyboard */,
 				8147E1AD1E457541001925E2 /* Assets.xcassets */,
 				8147E1AF1E457541001925E2 /* LaunchScreen.storyboard */,
@@ -97,9 +104,35 @@
 		81520B171E45852B000441CF /* API */ = {
 			isa = PBXGroup;
 			children = (
-				81520B181E458546000441CF /* Nasa.swift */,
+				81520B181E458546000441CF /* NasaAPI.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		819E1AAF1E46259C00F1832B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				819E1AB51E4627BC00F1832B /* Gallery */,
+				819E1AB41E4627B200F1832B /* Rover / Mars Model */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		819E1AB41E4627B200F1832B /* Rover / Mars Model */ = {
+			isa = PBXGroup;
+			children = (
+				8147E1A51E457541001925E2 /* FirstViewController.swift */,
+			);
+			name = "Rover / Mars Model";
+			sourceTree = "<group>";
+		};
+		819E1AB51E4627BC00F1832B /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				819E1AB01E4625C800F1832B /* GalleryViewController.swift */,
+				819E1AB81E46281B00F1832B /* CameraSelectionView.swift */,
+			);
+			name = Gallery;
 			sourceTree = "<group>";
 		};
 		9F0BB738B04A5DFCB8E2A668 /* Frameworks */ = {
@@ -243,12 +276,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819E1AB31E46267E00F1832B /* Extensions.swift in Sources */,
 				81520B161E4582CB000441CF /* Photo.swift in Sources */,
 				81520B121E45802A000441CF /* Rover.swift in Sources */,
 				81520B141E4581B1000441CF /* Camera.swift in Sources */,
-				8147E1A61E457541001925E2 /* ViewController.swift in Sources */,
-				81520B191E458546000441CF /* Nasa.swift in Sources */,
+				8147E1A61E457541001925E2 /* FirstViewController.swift in Sources */,
+				81520B191E458546000441CF /* NasaAPI.swift in Sources */,
+				819E1AB11E4625C800F1832B /* GalleryViewController.swift in Sources */,
 				8147E1AC1E457541001925E2 /* MarsArchive.xcdatamodeld in Sources */,
+				819E1AB91E46281B00F1832B /* CameraSelectionView.swift in Sources */,
 				8147E1A41E457541001925E2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class NasaAPI {
     
@@ -35,8 +36,13 @@ class NasaAPI {
         return URL(string: urlString)!
     }
     
-    func fetch(for rover: RoverType, sol: Int, camera: Camera) -> [Photo] {
+    func fetchRoverData() -> [Rover] {
+        let rovers: [Rover] = []
         
+        return rovers
+    }
+    
+    func fetchPhotos(for rover: Rover, sol: Int, camera: Camera) -> [Photo] {
         let photos: [Photo] = []
     
         
