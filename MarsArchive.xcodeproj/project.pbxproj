@@ -13,9 +13,16 @@
 		8147E1AC1E457541001925E2 /* MarsArchive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8147E1AA1E457541001925E2 /* MarsArchive.xcdatamodeld */; };
 		8147E1AE1E457541001925E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8147E1AD1E457541001925E2 /* Assets.xcassets */; };
 		8147E1B11E457541001925E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8147E1AF1E457541001925E2 /* LaunchScreen.storyboard */; };
+		81520B121E45802A000441CF /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B111E45802A000441CF /* Rover.swift */; };
+		81520B141E4581B1000441CF /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B131E4581B1000441CF /* Camera.swift */; };
+		81520B161E4582CB000441CF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B151E4582CB000441CF /* Photo.swift */; };
+		81520B191E458546000441CF /* Nasa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81520B181E458546000441CF /* Nasa.swift */; };
+		F082DF4738904BBA80FB71D9 /* Pods_MarsArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F8BEEFFB945541FF2F9C60C /* Pods-MarsArchive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarsArchive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MarsArchive/Pods-MarsArchive.debug.xcconfig"; sourceTree = "<group>"; };
+		322A0F37F45334B347469A27 /* Pods-MarsArchive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarsArchive.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarsArchive/Pods-MarsArchive.release.xcconfig"; sourceTree = "<group>"; };
 		8147E1A01E457541001925E2 /* MarsArchive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsArchive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8147E1A31E457541001925E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8147E1A51E457541001925E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +31,11 @@
 		8147E1AD1E457541001925E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8147E1B01E457541001925E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8147E1B21E457541001925E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81520B111E45802A000441CF /* Rover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
+		81520B131E4581B1000441CF /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		81520B151E4582CB000441CF /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		81520B181E458546000441CF /* Nasa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nasa.swift; sourceTree = "<group>"; };
+		E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarsArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F082DF4738904BBA80FB71D9 /* Pods_MarsArchive.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +55,8 @@
 			children = (
 				8147E1A21E457541001925E2 /* MarsArchive */,
 				8147E1A11E457541001925E2 /* Products */,
+				BEE114568986F13DAEAE3A06 /* Pods */,
+				9F0BB738B04A5DFCB8E2A668 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +71,8 @@
 		8147E1A21E457541001925E2 /* MarsArchive */ = {
 			isa = PBXGroup;
 			children = (
+				81520B171E45852B000441CF /* API */,
+				81520B101E45800F000441CF /* Model */,
 				8147E1A31E457541001925E2 /* AppDelegate.swift */,
 				8147E1A51E457541001925E2 /* ViewController.swift */,
 				8147E1A71E457541001925E2 /* Main.storyboard */,
@@ -67,6 +84,41 @@
 			path = MarsArchive;
 			sourceTree = "<group>";
 		};
+		81520B101E45800F000441CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81520B111E45802A000441CF /* Rover.swift */,
+				81520B131E4581B1000441CF /* Camera.swift */,
+				81520B151E4582CB000441CF /* Photo.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		81520B171E45852B000441CF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				81520B181E458546000441CF /* Nasa.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		9F0BB738B04A5DFCB8E2A668 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEE114568986F13DAEAE3A06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F8BEEFFB945541FF2F9C60C /* Pods-MarsArchive.debug.xcconfig */,
+				322A0F37F45334B347469A27 /* Pods-MarsArchive.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +126,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8147E1B51E457541001925E2 /* Build configuration list for PBXNativeTarget "MarsArchive" */;
 			buildPhases = (
+				650D42A400694376743CF005 /* [CP] Check Pods Manifest.lock */,
 				8147E19C1E457541001925E2 /* Sources */,
 				8147E19D1E457541001925E2 /* Frameworks */,
 				8147E19E1E457541001925E2 /* Resources */,
+				80A0F9D6B8847F1E4152CC29 /* [CP] Embed Pods Frameworks */,
+				541FE76ED378144A4DA29548 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,12 +190,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		541FE76ED378144A4DA29548 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarsArchive/Pods-MarsArchive-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		650D42A400694376743CF005 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		80A0F9D6B8847F1E4152CC29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MarsArchive/Pods-MarsArchive-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8147E19C1E457541001925E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81520B161E4582CB000441CF /* Photo.swift in Sources */,
+				81520B121E45802A000441CF /* Rover.swift in Sources */,
+				81520B141E4581B1000441CF /* Camera.swift in Sources */,
 				8147E1A61E457541001925E2 /* ViewController.swift in Sources */,
+				81520B191E458546000441CF /* Nasa.swift in Sources */,
 				8147E1AC1E457541001925E2 /* MarsArchive.xcdatamodeld in Sources */,
 				8147E1A41E457541001925E2 /* AppDelegate.swift in Sources */,
 			);
@@ -263,6 +370,7 @@
 		};
 		8147E1B61E457541001925E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F8BEEFFB945541FF2F9C60C /* Pods-MarsArchive.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P6WDVDEGP6;
@@ -271,11 +379,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.azing.MarsArchive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		8147E1B71E457541001925E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 322A0F37F45334B347469A27 /* Pods-MarsArchive.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = P6WDVDEGP6;
@@ -284,6 +394,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.azing.MarsArchive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -306,6 +417,7 @@
 				8147E1B71E457541001925E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,22 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    @IBAction func curiosityPressed(_ sender: Any) {
+    
+    }
+    
+    @IBAction func opportunityPressed(_ sender: Any) {
+    
+    }
+    
+    
+    @IBAction func spiritPressed(_ sender: Any) {
+    
+    }
+    
+    func roverSelected(_ rover: Rover) {
+        
+    }
 }
 
