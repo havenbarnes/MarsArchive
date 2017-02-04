@@ -9,4 +9,5 @@ target 'MarsArchive' do
   pod 'Alamofire'
   pod 'SDWebImage'
   pod 'SwiftyJSON'
+  pod 'UICountingLabel'
 end

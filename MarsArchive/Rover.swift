@@ -10,6 +10,10 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+enum RoverJSONError: Error {
+    case invalidValue
+}
+
 struct Rover {
     var name: String
     var status: Bool
@@ -18,11 +22,18 @@ struct Rover {
     var maxDate: Date
     var maxSol: Int
     var photoCount: Int
-    var photoData: [[Int: [Camera]]] = []
+    var photoData: [Int: [Camera]] = [:]
     
-    // Instantiates a Rover object from NASA /manifests endpoint
-    init(json: JSON) {
-        
+    /** 
+     Instantiates a Rover object from NASA /manifests endpoint
+     Have experienced a null "Rover" Object from manifests endpoint
+     before, so we throw RoverJSONError if this occurs
+    */
+    init(json: JSON) throws {
+        guard json.null == nil else {
+            print("Error: Null JSON Value Found")
+            throw RoverJSONError.invalidValue
+        }
         self.name = json["name"].string!
         self.status = json["status"].string! == "active"
         self.launchDate = Utility.date(from: json["launch_date"].string!)
@@ -35,8 +46,8 @@ struct Rover {
     }
     
     // Parses the photo manifest and returns a dictionary (sol: cameras)
-    func analyzePhotoCollection(jsonArray: [JSON]) -> [[Int: [Camera]]] {
-        var photoCollection: [[Int: [Camera]]] = []
+    func analyzePhotoCollection(jsonArray: [JSON]) -> [Int: [Camera]] {
+        var photoCollection: [Int: [Camera]] = [:]
         
         for json in jsonArray {
             var cameras: [Camera] = []
@@ -45,7 +56,7 @@ struct Rover {
             }
             
             let sol = json["sol"].int!
-            photoCollection.append([sol: cameras])
+            photoCollection[sol] = cameras
         }
         
         return photoCollection
