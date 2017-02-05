@@ -19,6 +19,7 @@ extension GalleryViewController {
             self.activityIndicator.alpha = 1
             self.activityIndicator.isHidden = false
             self.collectionView.alpha = 0
+            self.photoCountLabel.alpha = 0
         })
         
         let selectedCamera: Camera? = self.cameraSelectionView.selectedCameraIndex == 0 ? nil : self.cameraSelectionView.cameras[self.cameraSelectionView.selectedCameraIndex - 1]
@@ -27,6 +28,12 @@ extension GalleryViewController {
             photos in
             
             self.photos = photos
+            
+            if self.photos.count == 1 {
+                self.photoCountLabel.text = "1 Photo"
+            } else {
+                self.photoCountLabel.text = "\(self.photos.count) Photos"
+            }
             
             self.activityIndicator.isHidden = true
             
@@ -41,6 +48,7 @@ extension GalleryViewController {
                     UIView.animate(withDuration: 0.3, animations: {
                         self.activityIndicator.alpha = 0
                         self.collectionView.alpha = 1
+                        self.photoCountLabel.alpha = 1
                     })
                 }
             })

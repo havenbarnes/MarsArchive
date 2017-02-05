@@ -14,6 +14,7 @@ class RoversViewController: UIViewController {
     var scene: SCNScene!
     @IBOutlet weak var sceneView: SCNView!
     var roverNodes: [SCNNode : String] = [:]
+    var roverLabelNodes: [SCNNode: String] = [:]
     var cameraNode: SCNNode!
     
     var coverView: UIView!

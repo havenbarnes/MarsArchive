@@ -60,19 +60,7 @@ class GalleryPageItemViewController: UIViewController, UIScrollViewDelegate {
         let origin = CGPoint(x: point.x - size.width / 3,
                              y: point.y - size.height / 3)
         scrollView.zoom(to:CGRect(origin: origin, size: size), animated: true)
-        print(CGRect(origin: origin, size: size))
         
-        
-        //let tapLocation = self.doubleTapGesture.location(in: self.imageView)
-    
-//        if scrollView.zoomScale >= 3.0 {
-//            let zoomRect = CGRect(x: tapLocation.x, y: tapLocation.y, width: self.imageView.frame.width, height: self.imageView.frame.width)
-//            self.scrollView.zoom(to: zoomRect, animated: true)
-//            
-//        } else {
-//            let zoomRect = CGRect(x: tapLocation.x, y: tapLocation.y, width: self.imageView.frame.width / 3, height: self.imageView.frame.width / 3)
-//            self.scrollView.zoom(to: zoomRect, animated: true)
-//        }
     }
 }
 

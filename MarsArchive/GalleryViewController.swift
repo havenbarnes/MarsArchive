@@ -29,6 +29,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     
     @IBOutlet weak var dateTypeLabel: UILabel!
     @IBOutlet weak var solLabel: UICountingLabel!
+    @IBOutlet weak var photoCountLabel: UILabel!
     @IBOutlet weak var solSlider: UISlider!
     @IBOutlet weak var solStepper: UIStepper!
     @IBOutlet weak var cameraSelectionView: CameraSelectionView!
@@ -74,6 +75,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     // MARK: - UI Configuration
     func configureUI() {
         configureNavBar()
+        configureSettings()
         configureGallery()
         configureSliderAndStepper()
         configureCameraSelection()
@@ -83,15 +85,19 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         self.navigationController!.setNavigationBarHidden(false, animated: true)
         self.navigationItem.title = self.rover.name
         self.settingsTopConstraint.constant = -100
-        
+    }
+    
+    func configureSettings() {
         self.datePref = UserDefaults.standard.bool(forKey: "datePref")
         self.dayTypeSwitch.setOn(datePref, animated: false)
         
-        if self.datePref {
-            dateTypeLabel.text = "EARTH DAY"
-        } else {
-            dateTypeLabel.text = "SOL"
-        }
+        UIView.animate(withDuration: 0.3, animations: {
+            if self.datePref {
+                self.dateTypeLabel.text = "EARTH"
+            } else {
+                self.dateTypeLabel.text = "SOL"
+            }
+        })
     }
     
     func configureGallery() {
@@ -212,12 +218,9 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     
     @IBAction func dateTypePreferenceChanged(_ sender: Any) {
         UserDefaults.standard.set(self.dayTypeSwitch.isOn, forKey: "datePref")
+        UserDefaults.standard.synchronize()
         self.datePref = self.dayTypeSwitch.isOn
         
-        if self.dayTypeSwitch.isOn {
-            // Earth Date
-        } else {
-            // Sol Date
-        }
+        configureSettings()
     }
 }

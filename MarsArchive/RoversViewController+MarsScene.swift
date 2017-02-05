@@ -40,13 +40,13 @@ extension RoversViewController {
         material?.reflective.intensity = 0.0
         
         // Background
-        let bg = UIImage(named: "space_environment_big.jpg")
+        let bg = UIImage(named: "space.jpg")
         scene.background.contents = bg
         
         // Lighting
-        let env = UIImage(named: "space_environment_big.jpg")
+        let env = UIImage(named: "space.jpg")
         scene.lightingEnvironment.contents = env
-        scene.lightingEnvironment.intensity = 20.0
+        scene.lightingEnvironment.intensity = 700.0
         
         // set the scene to the view
         self.sceneView.scene = scene
@@ -55,46 +55,120 @@ extension RoversViewController {
         self.sceneView.allowsCameraControl = true
         
         configureMissionMarkers()
+        configureRoverLabels()
         filterOutGestures()
         configureGestures()
+        
     }
     
     func configureMissionMarkers() {
         
-        let sphereRadius: Float = 0.4
-        let planetRadius: Float = 5.0
+        let sphereRadius: Float = 0.8
+        let planetRadius: Float = 4.7
         
-        let sphere = SCNSphere(radius: CGFloat(sphereRadius))
-        sphere.firstMaterial?.diffuse.contents = UIColor.white
-
         var index = 0
         
         for coords in roverLocations {
             
+            let sphere = SCNSphere(radius: CGFloat(sphereRadius))
+            
             let latitude = Float.pi / 180 * (90 - (coords[0]))
             let longitude = Float.pi / 180 * (0 - (coords[1]))
             
-            let wantedX = planetRadius * sin(latitude) * cos(longitude)
+            let wantedZ = planetRadius * sin(latitude) * cos(longitude)
             let wantedY = planetRadius * cos(latitude)
-            let wantedZ = planetRadius * sin(latitude) * sin(longitude)
+            let wantedX = planetRadius * sin(latitude) * sin(longitude)
             
             let node = SCNNode(geometry: sphere)
-            node.position = SCNVector3(x: wantedZ, y: wantedY, z: wantedX)
+            node.position = SCNVector3(x: wantedX, y: wantedY, z: wantedZ)
             self.scene.rootNode.addChildNode(node)
             
             switch index {
             case 0:
                 roverNodes[node] = "Curiosity"
+                sphere.firstMaterial?.diffuse.contents = UIColor.white.withAlphaComponent(0.6)
+                break
             case 1:
                 roverNodes[node] = "Opportunity"
+                sphere.firstMaterial?.diffuse.contents = UIColor.white.withAlphaComponent(0.6)
+                break
             case 2:
                 roverNodes[node] = "Spirit"
+                sphere.firstMaterial?.diffuse.contents = UIColor.red.lighter(by: 40)!.withAlphaComponent(0.6)
+                break
             default:
                 break
             }
-        
+            
             index += 1
         }
+    }
+    
+    func configureRoverLabels() {
+        
+        var index = 0
+        
+        for coords in roverLocations {
+            
+            let planetRadius: Float = 6.0
+            
+            var textString = ""
+            switch index {
+            case 0:
+                textString = "Curiosity"
+            case 1:
+                textString = "Opportunity"
+            case 2:
+                textString = "Spirit"
+            default:
+                break
+            }
+            
+            let text = SCNText(string: textString, extrusionDepth: 0)
+            text.firstMaterial?.diffuse.contents = UIColor.white
+            text.font = UIFont(name: "Michroma", size: 0.4)
+            text.alignmentMode = kCAAlignmentRight
+            
+            
+            let latitude = Float.pi / 180 * (90 - (coords[0]))
+            let longitude = Float.pi / 180 * (0 - (coords[1]))
+            
+            let wantedZ = planetRadius * sin(latitude) * cos(longitude)
+            let wantedY = planetRadius * cos(latitude)
+            let wantedX = planetRadius * sin(latitude) * sin(longitude)
+            
+            let node = SCNNode(geometry: text)
+            let billboardConstraint = SCNBillboardConstraint()
+            billboardConstraint.influenceFactor = 0.1
+            node.constraints = [SCNBillboardConstraint()]
+            print(wantedX)
+            print(wantedY)
+            print(wantedZ)
+            node.position = SCNVector3(x: wantedX - 1.0, y: wantedY, z: wantedZ)
+            
+            
+            switch index {
+            case 0:
+                roverLabelNodes[node] = "Curiosity"
+                node.position = SCNVector3(x: wantedX - 1.0, y: wantedY + 0.2, z: wantedZ)
+                break
+            case 1:
+                roverLabelNodes[node] = "Opportunity"
+                node.position = SCNVector3(x: wantedX - 1.4, y: wantedY, z: wantedZ)
+                break
+            case 2:
+                roverLabelNodes[node] = "Spirit"
+                node.position = SCNVector3(x: wantedX - 1.0, y: wantedY + 0.2, z: wantedZ)
+                break
+            default:
+                break
+            }
+            
+            self.scene.rootNode.addChildNode(node)
+            
+            index += 1
+        }
+        
     }
     
     func filterOutGestures() {
@@ -129,16 +203,15 @@ extension RoversViewController {
         
         let hitResults = sceneView.hitTest(location, options: nil)
         if hitResults.count > 0 {
-            let result = hitResults[0] 
+            let result = hitResults[0]
             let node = result.node
             
-            for rover in rovers {
-                if rover.name == roverNodes[node] {
-                    roverSelected(rover)
+            for rover in self.rovers {
+                if rover.name == self.roverNodes[node] {
+                    self.roverSelected(rover)
                 }
             }
-            
         }
     }
-
+    
 }
