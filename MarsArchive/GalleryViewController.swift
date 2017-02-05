@@ -11,6 +11,7 @@ import UICountingLabel
 
 class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    var datePref = false
     var loaded = false
     let api = App.shared.api
     var rover: Rover!
@@ -22,6 +23,11 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    @IBOutlet weak var dayTypeSwitch: UISwitch!
+    @IBOutlet weak var settingsTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var dateTypeLabel: UILabel!
     @IBOutlet weak var solLabel: UICountingLabel!
     @IBOutlet weak var solSlider: UISlider!
     @IBOutlet weak var solStepper: UIStepper!
@@ -76,6 +82,16 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     func configureNavBar() {
         self.navigationController!.setNavigationBarHidden(false, animated: true)
         self.navigationItem.title = self.rover.name
+        self.settingsTopConstraint.constant = -100
+        
+        self.datePref = UserDefaults.standard.bool(forKey: "datePref")
+        self.dayTypeSwitch.setOn(datePref, animated: false)
+        
+        if self.datePref {
+            dateTypeLabel.text = "EARTH DAY"
+        } else {
+            dateTypeLabel.text = "SOL"
+        }
     }
     
     func configureGallery() {
@@ -95,7 +111,6 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         self.cameraSelectionView.selectionDelegate = self
         self.cameraSelectionView.setAvailableCameras(self.rover.photoData[self.selectedSol])
     }
-    
     
     // MARK: - Animation Presentation
     func animatePresentation() {
@@ -153,8 +168,6 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         }
     }
 
-    
-    
     /**
      Jump to the correct sol based on whether there
      are photos for it
@@ -181,4 +194,30 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         return adjustedValue
     }
     
+    @IBAction func settingsButtonPressed(_ sender: Any) {
+        
+        if self.navigationItem.rightBarButtonItem?.image == #imageLiteral(resourceName: "Settings") {
+            self.settingsButton.title = "Done"
+            self.navigationItem.rightBarButtonItem?.image = nil
+            self.settingsTopConstraint.constant = 0
+        } else {
+            self.settingsButton.title = nil
+            self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "Settings")
+            self.settingsTopConstraint.constant = -100
+        }
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @IBAction func dateTypePreferenceChanged(_ sender: Any) {
+        UserDefaults.standard.set(self.dayTypeSwitch.isOn, forKey: "datePref")
+        self.datePref = self.dayTypeSwitch.isOn
+        
+        if self.dayTypeSwitch.isOn {
+            // Earth Date
+        } else {
+            // Sol Date
+        }
+    }
 }

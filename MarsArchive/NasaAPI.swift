@@ -132,9 +132,7 @@ class NasaAPI {
         
         // Add API Key
         urlString += NasaAPI.apiKeyParam
-        
-        print("Endpoint: " + urlString + "\n\n")
-        
+            
         return URL(string: urlString)!
     }
     

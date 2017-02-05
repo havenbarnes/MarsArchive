@@ -29,6 +29,8 @@
 		819E1AB11E4625C800F1832B /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB01E4625C800F1832B /* GalleryViewController.swift */; };
 		819E1AB31E46267E00F1832B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB21E46267E00F1832B /* Extensions.swift */; };
 		819E1AB91E46281B00F1832B /* CameraSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB81E46281B00F1832B /* CameraSelectionView.swift */; };
+		81DE1B551E470FC700B2F122 /* Michroma.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81DE1B541E470FBD00B2F122 /* Michroma.ttf */; };
+		81DE1B5A1E472A9500B2F122 /* rover.obj in Resources */ = {isa = PBXBuildFile; fileRef = 81DE1B591E472A9500B2F122 /* rover.obj */; };
 		81F13F6D1E4689490069C11F /* GalleryViewController+Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F13F6C1E4689490069C11F /* GalleryViewController+Gallery.swift */; };
 		F082DF4738904BBA80FB71D9 /* Pods_MarsArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,8 @@
 		819E1AB01E4625C800F1832B /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		819E1AB21E46267E00F1832B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		819E1AB81E46281B00F1832B /* CameraSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSelectionView.swift; sourceTree = "<group>"; };
+		81DE1B541E470FBD00B2F122 /* Michroma.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Michroma.ttf; sourceTree = "<group>"; };
+		81DE1B591E472A9500B2F122 /* rover.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rover.obj; sourceTree = "<group>"; };
 		81F13F6C1E4689490069C11F /* GalleryViewController+Gallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+Gallery.swift"; sourceTree = "<group>"; };
 		E50ACD9FB85A7FE9ED53BF57 /* Pods_MarsArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarsArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -135,6 +139,7 @@
 		818E20F01E46C4F500341CAF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				81DE1B531E470FB300B2F122 /* Fonts */,
 				818E20FB1E46C6A200341CAF /* Object */,
 				818E20F61E46C5B900341CAF /* Model */,
 				818E20F11E46C50800341CAF /* Environment */,
@@ -161,6 +166,7 @@
 		818E20FB1E46C6A200341CAF /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				81DE1B591E472A9500B2F122 /* rover.obj */,
 				818E210E1E46DB6E00341CAF /* sphere.obj */,
 			);
 			name = Object;
@@ -195,6 +201,14 @@
 				818E20EE1E469EFC00341CAF /* GalleryPageItemViewController.swift */,
 			);
 			name = Gallery;
+			sourceTree = "<group>";
+		};
+		81DE1B531E470FB300B2F122 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				81DE1B541E470FBD00B2F122 /* Michroma.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		9F0BB738B04A5DFCB8E2A668 /* Frameworks */ = {
@@ -280,6 +294,8 @@
 				818E210B1E46DB2200341CAF /* space_environment_big.jpg in Resources */,
 				8147E1B11E457541001925E2 /* LaunchScreen.storyboard in Resources */,
 				818E210D1E46DB5300341CAF /* mars_map.jpg in Resources */,
+				81DE1B551E470FC700B2F122 /* Michroma.ttf in Resources */,
+				81DE1B5A1E472A9500B2F122 /* rover.obj in Resources */,
 				8147E1AE1E457541001925E2 /* Assets.xcassets in Resources */,
 				818E210F1E46DB6E00341CAF /* sphere.obj in Resources */,
 				8147E1A91E457541001925E2 /* Main.storyboard in Resources */,

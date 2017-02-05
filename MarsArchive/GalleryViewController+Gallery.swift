@@ -59,8 +59,8 @@ extension GalleryViewController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let galleryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "GalleryCell", for: indexPath) as! GalleryCell
-        galleryCell.imageView.layer.masksToBounds = true
-        galleryCell.imageView.layer.cornerRadius = 4
+        
+        guard indexPath.row < self.photos.count else { return galleryCell }
         
         let photo = self.photos[indexPath.row]
         galleryCell.imageView.sd_setImage(with: photo.url)
@@ -82,7 +82,7 @@ extension GalleryViewController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let dimension = App.shared.window.frame.width / 4.0
+        let dimension = App.shared.window.frame.width / 4.05
         
         return CGSize(width: dimension, height: dimension)
     }

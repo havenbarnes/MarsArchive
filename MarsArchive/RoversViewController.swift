@@ -15,9 +15,10 @@ class RoversViewController: UIViewController {
     @IBOutlet weak var sceneView: SCNView!
     var roverNodes: [SCNNode : String] = [:]
     var cameraNode: SCNNode!
-
     
     var coverView: UIView!
+    
+    @IBOutlet weak var selectRoverLabel: UILabel!
     
     var rovers: [Rover]!
 
@@ -46,6 +47,12 @@ class RoversViewController: UIViewController {
         self.navigationController!.setNavigationBarHidden(true, animated: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        animateLabel()
+    }
+    
     func fetchRovers() {
         self.api.fetchRoversData(completion: {
             rovers in
@@ -53,6 +60,26 @@ class RoversViewController: UIViewController {
             self.rovers = rovers.sorted(by: { $0.name < $1.name } )
             
             print(self.rovers)
+        })
+    }
+    
+    func animateLabel() {
+        UIView.animate(withDuration: 0.7, animations: {
+            self.selectRoverLabel.alpha = 0
+        }, completion: {
+            complete in
+            
+            if complete {
+                UIView.animate(withDuration: 0.7, animations: {
+                    self.selectRoverLabel.alpha = 1
+                }, completion: {
+                    complete in
+                    
+                    if complete {
+                        self.animateLabel()
+                    }
+                })
+            }
         })
     }
     

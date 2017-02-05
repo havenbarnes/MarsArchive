@@ -64,5 +64,9 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Michroma.ttf</string>
+	</array>
 </dict>
 </plist>

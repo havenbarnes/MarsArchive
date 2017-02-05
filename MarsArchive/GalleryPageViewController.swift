@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class GalleryPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
@@ -87,16 +88,20 @@ class GalleryPageViewController: UIPageViewController, UIPageViewControllerDeleg
     func shareImage() {
         
         var sharedItems: [Any] = []
-    
-        sharedItems.append(self.currentPageItem.imageView.image!)
-        let shareString = "Check out this picture taken by the " + self.rover.name + " Rover!"
-        sharedItems.append(shareString)
         
-        let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view
-        
-        present(activityViewController, animated: true, completion: nil)
-        
+        let downloader = SDWebImageDownloader()
+        downloader.downloadImage(with: self.currentPageItem.photo.url, options: [], progress: nil, completed: {
+            completionBlock in
+            
+            sharedItems.append(completionBlock.0!)
+            let shareString = "Check out this picture taken by the " + self.rover.name + " Rover!"
+            sharedItems.append(shareString)
+            
+            let activityViewController = UIActivityViewController(activityItems: sharedItems, applicationActivities: nil)
+            activityViewController.popoverPresentationController?.sourceView = self.view
+            
+            self.present(activityViewController, animated: true, completion: nil)
+            
+        })
     }
-    
 }
