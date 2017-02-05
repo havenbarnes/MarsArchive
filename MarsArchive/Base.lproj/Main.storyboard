@@ -20,7 +20,7 @@
         <scene sceneID="nj6-zR-frb">
             <objects>
                 <navigationController storyboardIdentifier="RoversViewControllerNav" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="1gw-pr-LCw" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NJ8-JH-NeU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJ8-JH-NeU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.97254901959999995" green="0.52549019610000003" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -329,8 +329,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" misplaced="YES" text="Active" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylo-oz-de0">
-                                        <rect key="frame" x="151" y="15" width="68" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Active" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ylo-oz-de0">
+                                        <rect key="frame" x="151" y="12" width="60.333333333333343" height="20"/>
                                         <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="14"/>
                                         <color key="textColor" red="0.45441801599999998" green="0.92720891500000002" blue="0.65012982279999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -425,7 +425,7 @@
                                     <action selector="settingsButtonPressed:" destination="4lg-P7-HQ4" id="LEk-eN-INX"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Info" id="stu-Bc-HpQ">
+                            <barButtonItem image="Info" id="stu-Bc-HpQ">
                                 <color key="tintColor" red="1" green="0.54159986199999999" blue="0.28270393240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="infoButtonPressed:" destination="4lg-P7-HQ4" id="aUO-i8-Hfr"/>
@@ -530,7 +530,7 @@
                                     <action selector="actionButtonPressed:" destination="ttj-nv-cAk" id="040-GW-PC4"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Info" id="qvd-m7-eT1">
+                            <barButtonItem image="Info" id="qvd-m7-eT1">
                                 <color key="tintColor" red="1" green="0.54159986199999999" blue="0.28270393240000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="infoButtonPressed:" destination="ttj-nv-cAk" id="N7D-zr-0Ea"/>
@@ -598,6 +598,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Info" width="22" height="22"/>
         <image name="Settings" width="22" height="22"/>
     </resources>
 </document>
