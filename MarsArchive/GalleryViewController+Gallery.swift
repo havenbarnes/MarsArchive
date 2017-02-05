@@ -24,7 +24,16 @@ extension GalleryViewController {
         
         let selectedCamera: Camera? = self.cameraSelectionView.selectedCameraIndex == 0 ? nil : self.cameraSelectionView.cameras[self.cameraSelectionView.selectedCameraIndex - 1]
         
-        self.api.fetchPhotos(for: self.rover, sol: self.selectedSol, camera: selectedCamera, completion: {
+        var selectedSol: Int? = nil
+        var selectedEarthDate: String? = nil
+        
+        if self.datePref {
+            selectedEarthDate = earthDay(for: self.selectedSol)
+        } else {
+            selectedSol = self.selectedSol
+        }
+        
+        self.api.fetchPhotos(for: self.rover, sol: selectedSol, earthDate: selectedEarthDate, camera: selectedCamera, completion: {
             photos in
             
             self.photos = photos

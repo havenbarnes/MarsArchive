@@ -22,7 +22,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var dayTypeSwitch: UISwitch!
     @IBOutlet weak var settingsTopConstraint: NSLayoutConstraint!
@@ -39,10 +39,10 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         
         // Set Day to Today
         self.selectedSol = self.rover.maxSol
-
+        
         configureUI()
         updateGallery()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,6 +97,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
             } else {
                 self.dateTypeLabel.text = "SOL"
             }
+            self.solLabel.text = self.displayDay(self.selectedSol)
         })
     }
     
@@ -127,7 +128,15 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
             self.solSlider.setValue(self.solSlider.maximumValue, animated: true)
         })
         
-        self.solLabel.countFromZero(to: CGFloat(self.rover.maxSol))
+        if self.datePref {
+            self.solLabel.text = Utility.shortString(from: self.rover.landingDate)
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                self.solLabel.text = self.displayDay(self.rover.maxSol)
+            }, completion: nil)
+        } else {
+            self.solLabel.countFromZero(to: CGFloat(self.rover.maxSol))
+        }
         
     }
     
@@ -163,7 +172,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     func solValueChanged(_ sender: Any, value: Int) {
         
         self.selectedSol = updateSol(value)
-        self.solLabel.text = String(describing: self.selectedSol)
+        self.solLabel.text = displayDay(self.selectedSol)
         self.cameraSelectionView.setAvailableCameras(self.rover.photoData[self.selectedSol])
         
         // Make sure slider and stepper stay in sync
@@ -173,18 +182,38 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
             self.solStepper.value = Double(self.selectedSol)
         }
     }
-
+    
+    func displayDay(_ sol: Int) -> String {
+        if !self.datePref {
+            return String(describing: sol)
+        }
+        
+        let daysSinceLand = Int(Double(sol) * 1.03)
+        let landingDate = self.rover.landingDate
+        let date = Calendar.current.date(byAdding: .day, value: daysSinceLand, to: landingDate)
+        
+        return Utility.shortString(from: date!)
+    }
+    
+    func earthDay(for sol: Int) -> String {
+        let daysSinceLand = Int(Double(sol) * 1.03)
+        let landingDate = self.rover.landingDate
+        let date = Calendar.current.date(byAdding: .day, value: daysSinceLand, to: landingDate)
+        
+        return Utility.apiString(from: date!)
+    }
+    
     /**
      Jump to the correct sol based on whether there
      are photos for it
-    */
+     */
     func updateSol(_ value: Int) -> Int {
         guard value != 0 && value != self.rover.maxSol else {
             return value
         }
         
         var adjustedValue = value
-
+        
         if adjustedValue > self.selectedSol || adjustedValue <= 0 {
             // Jump up until we find sol with photos
             if self.rover.photoData[adjustedValue] == nil {
@@ -221,6 +250,16 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         UserDefaults.standard.synchronize()
         self.datePref = self.dayTypeSwitch.isOn
         
-        configureSettings()
-    }
+        self.settingsButton.title = nil
+        self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "Settings")
+        self.settingsTopConstraint.constant = -100
+    
+        
+    UIView.animate(withDuration: 0.3, animations: {
+    self.view.layoutIfNeeded()
+    })
+    
+    
+    configureSettings()
+}
 }

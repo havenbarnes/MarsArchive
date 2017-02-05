@@ -13,8 +13,10 @@ class GalleryPageItemViewController: UIViewController, UIScrollViewDelegate {
     
     var index = 0
     var photo: Photo!
+    var pageViewController: GalleryPageViewController!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     var doubleTapGesture: UITapGestureRecognizer!
     
     override func viewDidLayoutSubviews() {
@@ -26,6 +28,14 @@ class GalleryPageItemViewController: UIViewController, UIScrollViewDelegate {
         self.doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         self.doubleTapGesture.numberOfTapsRequired = 2
         self.scrollView.addGestureRecognizer(doubleTapGesture)
+        
+        self.descriptionLabel.text = self.photo.descriptionString()
+        
+        if pageViewController.infoOn {
+            self.descriptionLabel.alpha = 1
+        } else {
+            self.descriptionLabel.alpha = 0
+        }
     }
     
     func setImage() {

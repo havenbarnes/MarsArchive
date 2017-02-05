@@ -17,6 +17,18 @@ class Utility {
         return dateFormatter.date(from: string)!
     }
     
+    static func shortString(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        return dateFormatter.string(from: date)
+    }
+    
+    static func apiString(from date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: date)
+    }
+    
 }
 
 class StatusBarNotification: UILabel {

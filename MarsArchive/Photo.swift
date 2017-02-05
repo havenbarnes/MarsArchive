@@ -12,6 +12,9 @@ import SwiftyJSON
 struct Photo {
     var url: URL
     var earthDate: Date
+    var sol: Int
+    var camera: String
+    var rover: String
     
     init(json: JSON) throws {
         guard json.null == nil else {
@@ -20,5 +23,17 @@ struct Photo {
         }
         self.url = URL(string: json["img_src"].string!)!
         self.earthDate = Utility.date(from: json["earth_date"].string!)
+        self.sol = json["sol"].int!
+        self.camera = json["camera"]["full_name"].string!
+        self.rover = json["rover"]["name"].string!
+    }
+    
+    func descriptionString() -> String {
+        if UserDefaults.standard.bool(forKey: "datePref") {
+            return "Taken by \(self.rover)'s \(self.camera) on \(Utility.shortString(from: earthDate))"
+        } else {
+            return "Taken by \(self.rover)'s \(self.camera) on Sol \(self.sol)"
+        }
+        
     }
 }

@@ -141,9 +141,6 @@ extension RoversViewController {
             let billboardConstraint = SCNBillboardConstraint()
             billboardConstraint.influenceFactor = 0.1
             node.constraints = [SCNBillboardConstraint()]
-            print(wantedX)
-            print(wantedY)
-            print(wantedZ)
             node.position = SCNVector3(x: wantedX - 1.0, y: wantedY, z: wantedZ)
             
             

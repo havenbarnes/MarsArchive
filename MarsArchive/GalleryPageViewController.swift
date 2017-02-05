@@ -11,6 +11,7 @@ import SDWebImage
 
 class GalleryPageViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
+    var infoOn = true
     var rover: Rover!
     var photos: [Photo]!
     var startIndex: Int = 0
@@ -25,6 +26,7 @@ class GalleryPageViewController: UIPageViewController, UIPageViewControllerDeleg
         let newGalleryPageItem = instantiate("Main", identifier: "GalleryPageItemViewController") as! GalleryPageItemViewController
         newGalleryPageItem.index = startIndex
         newGalleryPageItem.photo = self.photos[startIndex]
+        newGalleryPageItem.pageViewController = self
         self.setViewControllers([newGalleryPageItem], direction: .forward, animated: true, completion: {
             complete in
             
@@ -35,9 +37,14 @@ class GalleryPageViewController: UIPageViewController, UIPageViewControllerDeleg
         })
         
         self.currentPageItem = newGalleryPageItem
-
+        updateTitle()
+        
     }
     
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        self.currentPageItem = self.viewControllers![0] as! GalleryPageItemViewController
+        updateTitle()
+    }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
@@ -54,8 +61,7 @@ class GalleryPageViewController: UIPageViewController, UIPageViewControllerDeleg
         let newGalleryPageItem = instantiate("Main", identifier: "GalleryPageItemViewController") as! GalleryPageItemViewController
         newGalleryPageItem.index = currIndex
         newGalleryPageItem.photo = self.photos[currIndex]
-        self.currentPageItem = newGalleryPageItem
-        
+        newGalleryPageItem.pageViewController = self
         return newGalleryPageItem
         
     }
@@ -75,10 +81,28 @@ class GalleryPageViewController: UIPageViewController, UIPageViewControllerDeleg
         let newGalleryPageItem = instantiate("Main", identifier: "GalleryPageItemViewController") as! GalleryPageItemViewController
         newGalleryPageItem.index = currIndex
         newGalleryPageItem.photo = self.photos[currIndex]
-        self.currentPageItem = newGalleryPageItem
-        
+        newGalleryPageItem.pageViewController = self
         return newGalleryPageItem
         
+    }
+    
+    func updateTitle() {
+        self.navigationItem.backBarButtonItem?.title = nil
+        self.navigationItem.title = "\(self.currentPageItem.index + 1) of \(self.photos.count)"
+    }
+    
+    
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        self.infoOn = !self.infoOn
+        if self.currentPageItem.descriptionLabel.alpha == 0 {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.currentPageItem.descriptionLabel.alpha = 1
+            })
+        } else {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.currentPageItem.descriptionLabel.alpha = 0
+            })
+        }
     }
     
     @IBAction func actionButtonPressed(_ sender: Any) {

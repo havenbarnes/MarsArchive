@@ -28,6 +28,7 @@ class NasaAPI {
     
     enum Options: String {
         case sol = "sol="
+        case earthDate = "earth_date="
         case camera = "camera="
     }
     
@@ -73,10 +74,15 @@ class NasaAPI {
         
     }
     
-    func fetchPhotos(for rover: Rover, sol: Int, camera: Camera?, completion: @escaping (([Photo]) -> Void)) {
+    func fetchPhotos(for rover: Rover, sol: Int?, earthDate: String?, camera: Camera?, completion: @escaping (([Photo]) -> Void)) {
         var photos: [Photo] = []
         var options: [Options: Any] = [:]
-        options[NasaAPI.Options.sol] = sol
+        
+        if sol != nil {
+            options[NasaAPI.Options.sol] = sol!
+        } else {
+            options[NasaAPI.Options.earthDate] = earthDate!
+        }
         
         if camera != nil {
             options[NasaAPI.Options.camera] = camera!.name
@@ -104,6 +110,8 @@ class NasaAPI {
     func fetch(endpoint: Endpoint, roverName: String?, photoRequest: Bool, options: [Options : Any]?, completion: @escaping ((JSON) throws -> Void)) {
         
         let url = self.url(from: endpoint, roverName: roverName, photoRequest: photoRequest, options: options)
+        
+        print(url)
         
         Alamofire.request(url)
             .responseJSON { response in
