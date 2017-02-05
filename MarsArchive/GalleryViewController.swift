@@ -14,9 +14,13 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     var loaded = false
     let api = App.shared.api
     var rover: Rover!
+    var photos: [Photo] = []
     var selectedSol: Int = 0
     
+    var updateTimer: Timer!
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var solLabel: UICountingLabel!
     @IBOutlet weak var solSlider: UISlider!
@@ -30,6 +34,14 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         self.selectedSol = self.rover.maxSol
 
         configureUI()
+        updateGallery()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        configureNavBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,30 +52,35 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         }
     }
     
+    // MARK: - Timer Configuration
+    func startUpdateTimer() {
+        if self.updateTimer != nil {
+            self.updateTimer.invalidate()
+        }
+        
+        self.updateTimer = Timer.scheduledTimer(withTimeInterval: 0.4, repeats: false, block: {
+            timer in
+            
+            self.updateGallery()
+        })
+    }
+    
+    // MARK: - UI Configuration
     func configureUI() {
-
         configureNavBar()
+        configureGallery()
         configureSliderAndStepper()
         configureCameraSelection()
     }
     
-    func animatePresentation() {
-        self.solLabel.format = "%d"
-        self.solLabel.animationDuration = 0.7
-        
-        UIView.animate(withDuration: 0.7, animations: {
-            self.solSlider.setValue(self.solSlider.maximumValue, animated: true)
-        })
-        
-        self.solLabel.countFromZero(to: CGFloat(self.rover.maxSol))
-
-    }
-    
     func configureNavBar() {
         self.navigationController!.setNavigationBarHidden(false, animated: true)
-        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController!.navigationBar.backgroundColor = UIColor.clear
-        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationItem.title = self.rover.name
+    }
+    
+    func configureGallery() {
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
     }
     
     func configureSliderAndStepper() {
@@ -79,6 +96,20 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         self.cameraSelectionView.setAvailableCameras(self.rover.photoData[self.selectedSol])
     }
     
+    
+    // MARK: - Animation Presentation
+    func animatePresentation() {
+        self.solLabel.format = "%d"
+        self.solLabel.animationDuration = 0.7
+        
+        UIView.animate(withDuration: 0.7, animations: {
+            self.solSlider.setValue(self.solSlider.maximumValue, animated: true)
+        })
+        
+        self.solLabel.countFromZero(to: CGFloat(self.rover.maxSol))
+        
+    }
+    
     func cameraSelectionView(_ cameraSelectionView: CameraSelectionView, didSelectCamera camera: Camera?) {
         // Make Request, Update Gallery
         if camera == nil {
@@ -86,8 +117,9 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
             
         } else {
             print("Selected Camera: " + camera!.name)
-
         }
+        
+        updateGallery()
         
     }
     
@@ -95,7 +127,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         
         solValueChanged(sender, value: Int(self.solStepper.value))
         
-        
+        startUpdateTimer()
         
     }
     
@@ -103,10 +135,13 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         
         solValueChanged(sender, value: Int(self.solSlider.value))
         
+        startUpdateTimer()
+        
     }
     
     func solValueChanged(_ sender: Any, value: Int) {
-        self.selectedSol = value
+        
+        self.selectedSol = updateSol(value)
         self.solLabel.text = String(describing: self.selectedSol)
         self.cameraSelectionView.setAvailableCameras(self.rover.photoData[self.selectedSol])
         
@@ -116,7 +151,34 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         } else {
             self.solStepper.value = Double(self.selectedSol)
         }
+    }
+
+    
+    
+    /**
+     Jump to the correct sol based on whether there
+     are photos for it
+    */
+    func updateSol(_ value: Int) -> Int {
+        guard value != 0 && value != self.rover.maxSol else {
+            return value
+        }
         
+        var adjustedValue = value
+
+        if adjustedValue > self.selectedSol || adjustedValue <= 0 {
+            // Jump up until we find sol with photos
+            if self.rover.photoData[adjustedValue] == nil {
+                adjustedValue = updateSol(adjustedValue + 1)
+            }
+        } else if adjustedValue < self.selectedSol || adjustedValue >= self.rover.maxSol {
+            // Jump down until we find sol with photos
+            if self.rover.photoData[adjustedValue] == nil {
+                adjustedValue = updateSol(adjustedValue - 1)
+            }
+        }
+        
+        return adjustedValue
     }
     
 }

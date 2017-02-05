@@ -10,6 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+enum NasaJSONError: Error {
+    case invalidValue
+}
+
+
 class NasaAPI {
     
     var failedAttempts = 0
@@ -31,10 +36,15 @@ class NasaAPI {
         var rovers: [Rover] = []
         
         // First, grab rover summary from /rovers endpoint
-        self.fetch(endpoint: NasaAPI.Endpoint.rovers, roverName: nil, photoRequest: false, options: nil, completion: {
+        fetch(endpoint: NasaAPI.Endpoint.rovers, roverName: nil, photoRequest: false, options: nil, completion: {
             json in
             
             // Grab manifest data for each rover in rovers array
+            guard json["rovers"].array != nil else  {
+                completion(rovers)
+                StatusBarNotification(message: "API Currently Unavailable", color: UIColor.red, lightStatusBar: true).show()
+                return
+            }
             for roverJSON in json["rovers"].array! {
                 
                 self.fetch(endpoint: NasaAPI.Endpoint.manifest, roverName: roverJSON["name"].string!, photoRequest: false, options: nil, completion: {
@@ -43,17 +53,15 @@ class NasaAPI {
                     
                     do {
                         try rovers.append(Rover(json: roverManifestJSON["photo_manifest"]))
-                    } catch RoverJSONError.invalidValue {
+                    } catch NasaJSONError.invalidValue {
                         self.failedAttempts += 1
                         if self.failedAttempts >= 3 {
                             self.fetchRoversData(completion: completion)
                         } else {
-                            StatusBarNotification(message: "NASA Network Error", color: UIColor.red).show()
+                            StatusBarNotification(message: "NASA Network Error", color: UIColor.red, lightStatusBar: true).show()
                         }
                         
                     }
-                    
-                    
                     
                     // If we've fetched the last rover manifest, return data
                     if rovers.count == json["rovers"].array!.count {
@@ -65,13 +73,35 @@ class NasaAPI {
         
     }
     
-    func fetchPhotos(for rover: Rover, sol: Int, camera: Camera?) -> [Photo] {
-        let photos: [Photo] = []
+    func fetchPhotos(for rover: Rover, sol: Int, camera: Camera?, completion: @escaping (([Photo]) -> Void)) {
+        var photos: [Photo] = []
+        var options: [Options: Any] = [:]
+        options[NasaAPI.Options.sol] = sol
         
+        if camera != nil {
+            options[NasaAPI.Options.camera] = camera!.name
+        }
         
-        return photos
+        fetch(endpoint: NasaAPI.Endpoint.rovers, roverName: rover.name, photoRequest: true, options: options, completion: {
+            json in
+            
+            guard json["photos"].array != nil else {
+                completion(photos)
+                return
+            }
+            
+            for photoJSON in json["photos"].array! {
+                do {
+                    try photos.append(Photo(json: photoJSON))
+                } catch NasaJSONError.invalidValue {
+                    StatusBarNotification(message: "NASA Network Error", color: UIColor.red, lightStatusBar: true).show()
+                }
+            }
+            completion(photos)
+        })
     }
-    func fetch(endpoint: Endpoint, roverName: String?, photoRequest: Bool, options: [Options]?, completion: @escaping ((JSON) throws -> Void)) {
+    
+    func fetch(endpoint: Endpoint, roverName: String?, photoRequest: Bool, options: [Options : Any]?, completion: @escaping ((JSON) throws -> Void)) {
         
         let url = self.url(from: endpoint, roverName: roverName, photoRequest: photoRequest, options: options)
         
@@ -84,7 +114,7 @@ class NasaAPI {
         
     }
     
-    func url(from endpoint: Endpoint, roverName: String?, photoRequest: Bool, options: [Options]?) -> URL {
+    func url(from endpoint: Endpoint, roverName: String?, photoRequest: Bool, options: [Options : Any]?) -> URL {
         
         var urlString = endpoint.rawValue
         if roverName != nil {
@@ -95,8 +125,8 @@ class NasaAPI {
         }
         urlString += "?"
         if options != nil {
-            for option in options! {
-                urlString += option.rawValue + "&"
+            for optionType in options!.keys {
+                urlString += optionType.rawValue + String(describing: options![optionType]!) + "&"
             }
         }
         

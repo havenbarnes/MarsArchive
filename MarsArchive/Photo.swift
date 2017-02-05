@@ -7,10 +7,18 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct Photo {
     var url: URL
-    var sol: Int
     var earthDate: Date
-    var camera: Camera
+    
+    init(json: JSON) throws {
+        guard json.null == nil else {
+            print("Error: Null JSON Value Found")
+            throw NasaJSONError.invalidValue
+        }
+        self.url = URL(string: json["img_src"].string!)!
+        self.earthDate = Utility.date(from: json["earth_date"].string!)
+    }
 }

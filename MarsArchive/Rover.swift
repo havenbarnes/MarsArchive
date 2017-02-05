@@ -10,10 +10,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-enum RoverJSONError: Error {
-    case invalidValue
-}
-
 struct Rover {
     var name: String
     var status: Bool
@@ -26,13 +22,13 @@ struct Rover {
     
     /** 
      Instantiates a Rover object from NASA /manifests endpoint
-     Have experienced a null "Rover" Object from manifests endpoint
-     before, so we throw RoverJSONError if this occurs
+     Have experienced a null objects from JSON arrays in this
+     api before, so we throw NasaJSONError if this occurs
     */
     init(json: JSON) throws {
         guard json.null == nil else {
             print("Error: Null JSON Value Found")
-            throw RoverJSONError.invalidValue
+            throw NasaJSONError.invalidValue
         }
         self.name = json["name"].string!
         self.status = json["status"].string! == "active"

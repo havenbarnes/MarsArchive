@@ -17,7 +17,6 @@ class Utility {
         return dateFormatter.date(from: string)!
     }
     
-    
 }
 
 class StatusBarNotification: UILabel {

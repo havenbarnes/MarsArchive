@@ -38,7 +38,8 @@ class CameraSelectionView: UICollectionView, UICollectionViewDelegate, UICollect
 
                 if cameras![index].name == self.selectedCamera!.name {
                     selectedCamExists = true
-                    self.selectedCameraIndex = index
+                    self.selectedCameraIndex = index + 1
+                    continue
                 }
                 
             }
@@ -47,6 +48,7 @@ class CameraSelectionView: UICollectionView, UICollectionViewDelegate, UICollect
                 self.selectedCameraIndex = 0
             }
         }
+        
         updateCameraCollection()
         
     }
@@ -108,8 +110,11 @@ class CameraSelectionView: UICollectionView, UICollectionViewDelegate, UICollect
             return
         }
         
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        
         if indexPath.row == 0 {
             self.selectedCamera = nil
+            self.selectedCameraIndex = 0
             updateCameraCollection()
             self.selectionDelegate.cameraSelectionView(self, didSelectCamera: nil)
         } else {

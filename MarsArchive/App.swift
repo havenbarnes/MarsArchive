@@ -12,7 +12,6 @@ import UIKit
 class App {
     
     static let shared = App()
-    var rovers: [Rover] = []
     var window: UIWindow!
     var api = NasaAPI()
 
