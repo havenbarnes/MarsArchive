@@ -27,6 +27,9 @@
 		818E20F81E46C60100341CAF /* mars_map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 818E20F71E46C60100341CAF /* mars_map.jpg */; };
 		818E20FA1E46C60800341CAF /* mars_bump.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 818E20F91E46C60800341CAF /* mars_bump.jpg */; };
 		818E20FD1E46C6B100341CAF /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 818E20FC1E46C6B100341CAF /* sphere.obj */; };
+		818E20FF1E46CB1100341CAF /* space_environment_big.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 818E20FE1E46CB1100341CAF /* space_environment_big.jpg */; };
+		818E21031E46D0AE00341CAF /* space_environment_big_bright.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 818E21021E46D0AE00341CAF /* space_environment_big_bright.jpg */; };
+		818E21091E46D75300341CAF /* RoversViewController+MarsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818E21081E46D75300341CAF /* RoversViewController+MarsScene.swift */; };
 		819E1AB11E4625C800F1832B /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB01E4625C800F1832B /* GalleryViewController.swift */; };
 		819E1AB31E46267E00F1832B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB21E46267E00F1832B /* Extensions.swift */; };
 		819E1AB91E46281B00F1832B /* CameraSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E1AB81E46281B00F1832B /* CameraSelectionView.swift */; };
@@ -59,6 +62,9 @@
 		818E20F71E46C60100341CAF /* mars_map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mars_map.jpg; path = ../../../Downloads/mars_map.jpg; sourceTree = "<group>"; };
 		818E20F91E46C60800341CAF /* mars_bump.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = mars_bump.jpg; path = ../../../Downloads/mars_bump.jpg; sourceTree = "<group>"; };
 		818E20FC1E46C6B100341CAF /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sphere.obj; path = ../../../Downloads/sphere.obj; sourceTree = "<group>"; };
+		818E20FE1E46CB1100341CAF /* space_environment_big.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = space_environment_big.jpg; path = ../../../Downloads/space_environment_big.jpg; sourceTree = "<group>"; };
+		818E21021E46D0AE00341CAF /* space_environment_big_bright.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = space_environment_big_bright.jpg; path = ../../../Downloads/space_environment_big_bright.jpg; sourceTree = "<group>"; };
+		818E21081E46D75300341CAF /* RoversViewController+MarsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RoversViewController+MarsScene.swift"; sourceTree = "<group>"; };
 		819E1AB01E4625C800F1832B /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		819E1AB21E46267E00F1832B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		819E1AB81E46281B00F1832B /* CameraSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraSelectionView.swift; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 		818E20F11E46C50800341CAF /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				818E20FE1E46CB1100341CAF /* space_environment_big.jpg */,
+				818E21021E46D0AE00341CAF /* space_environment_big_bright.jpg */,
 				818E20F21E46C51500341CAF /* space_environment.jpg */,
 				818E20F41E46C51A00341CAF /* space_environment_blurred.jpg */,
 			);
@@ -184,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				8147E1A51E457541001925E2 /* RoversViewController.swift */,
+				818E21081E46D75300341CAF /* RoversViewController+MarsScene.swift */,
 			);
 			name = "Rover / Mars Model";
 			sourceTree = "<group>";
@@ -280,9 +289,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				818E20FF1E46CB1100341CAF /* space_environment_big.jpg in Resources */,
 				818E20F31E46C51500341CAF /* space_environment.jpg in Resources */,
 				818E20F51E46C51A00341CAF /* space_environment_blurred.jpg in Resources */,
 				818E20FD1E46C6B100341CAF /* sphere.obj in Resources */,
+				818E21031E46D0AE00341CAF /* space_environment_big_bright.jpg in Resources */,
 				818E20FA1E46C60800341CAF /* mars_bump.jpg in Resources */,
 				8147E1B11E457541001925E2 /* LaunchScreen.storyboard in Resources */,
 				818E20F81E46C60100341CAF /* mars_map.jpg in Resources */,
@@ -357,6 +368,7 @@
 				818E20ED1E469ECB00341CAF /* GalleryPageViewController.swift in Sources */,
 				81520B191E458546000441CF /* NasaAPI.swift in Sources */,
 				819E1AB11E4625C800F1832B /* GalleryViewController.swift in Sources */,
+				818E21091E46D75300341CAF /* RoversViewController+MarsScene.swift in Sources */,
 				8147E1AC1E457541001925E2 /* MarsArchive.xcdatamodeld in Sources */,
 				810434BE1E4643DA009861B4 /* App.swift in Sources */,
 				819E1AB91E46281B00F1832B /* CameraSelectionView.swift in Sources */,

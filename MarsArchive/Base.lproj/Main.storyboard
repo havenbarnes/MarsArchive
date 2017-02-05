@@ -56,10 +56,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LtM-by-6GS" userLabel="Rover Table">
-                                <rect key="frame" x="4" y="536" width="406" height="200"/>
+                                <rect key="frame" x="4" y="736" width="406" height="0.0"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="I68-dY-NN9"/>
+                                    <constraint firstAttribute="height" id="I68-dY-NN9"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RoverCell" rowHeight="100" id="NP1-WS-aMi" customClass="RoverCell" customModule="MarsArchive" customModuleProvider="target">

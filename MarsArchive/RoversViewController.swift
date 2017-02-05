@@ -13,6 +13,7 @@ class RoversViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var scene: SCNScene!
     @IBOutlet weak var sceneView: SCNView!
+    var rotateAction: SCNAction!
     
     @IBOutlet weak var tableView: UITableView!
     var refreshControl: UIRefreshControl!
@@ -38,43 +39,6 @@ class RoversViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController!.setNavigationBarHidden(true, animated: true)
-    }
-    
-    func configureScene() {
-        self.scene = SCNScene(named: "sphere.obj")
-        
-        // Sphere
-        let sphereNode = self.scene.rootNode.childNodes[0]
-        
-        // Camera
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        self.scene.rootNode.addChildNode(cameraNode)
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
-        
-        // Material
-        let material = sphereNode.geometry?.firstMaterial
-        material?.lightingModel = SCNMaterial.LightingModel.physicallyBased
-        material?.roughness.contents = UIImage(named: "mars_bump.jpg")
-        material?.normal.contents = UIImage(named: "mars_map.jpg")
-        
-        // Background
-        let bg = UIImage(named: "space_environment_blurred.jpg")
-        scene.background.contents = bg
-
-        // Lighting
-        let env = UIImage(named: "space_environment.jpg")
-        scene.lightingEnvironment.contents = env
-        scene.lightingEnvironment.intensity = 2.0
-        
-        // set the scene to the view
-        self.sceneView.scene = scene
-        
-        // allows the user to manipulate the camera
-        self.sceneView.allowsCameraControl = true
-        
-        sphereNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 1, y: 1, z: 1, duration: 10)))
-        
     }
     
     func fetchRovers() {
