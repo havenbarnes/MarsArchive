@@ -20,6 +20,8 @@ class GalleryPageViewController: UIPageViewController, UIPageViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.infoOn = UserDefaults.standard.bool(forKey: "infoToggle")
+        
         self.delegate = self
         self.dataSource = self
         
@@ -94,6 +96,8 @@ class GalleryPageViewController: UIPageViewController, UIPageViewControllerDeleg
     
     @IBAction func infoButtonPressed(_ sender: Any) {
         self.infoOn = !self.infoOn
+        UserDefaults.standard.set(self.infoOn, forKey: "infoToggle")
+        UserDefaults.standard.synchronize()
         if self.currentPageItem.descriptionLabel.alpha == 0 {
             UIView.animate(withDuration: 0.3, animations: {
                 self.currentPageItem.descriptionLabel.alpha = 1

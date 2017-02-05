@@ -20,6 +20,12 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     
     var updateTimer: Timer!
     
+    @IBOutlet weak var activeLabel: UILabel!
+    @IBOutlet weak var launchDateLabel: UILabel!
+    @IBOutlet weak var landingDateLabel: UILabel!
+    @IBOutlet weak var totalPhotoCountLabel: UILabel!
+    @IBOutlet weak var infoTopLayoutConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -76,6 +82,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     func configureUI() {
         configureNavBar()
         configureSettings()
+        configureInfo()
         configureGallery()
         configureSliderAndStepper()
         configureCameraSelection()
@@ -84,10 +91,11 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     func configureNavBar() {
         self.navigationController!.setNavigationBarHidden(false, animated: true)
         self.navigationItem.title = self.rover.name
-        self.settingsTopConstraint.constant = -100
     }
     
     func configureSettings() {
+        self.settingsTopConstraint.constant = -100
+
         self.datePref = UserDefaults.standard.bool(forKey: "datePref")
         self.dayTypeSwitch.setOn(datePref, animated: false)
         
@@ -99,6 +107,17 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
             }
             self.solLabel.text = self.displayDay(self.selectedSol)
         })
+    }
+    
+    func configureInfo() {
+        self.infoTopLayoutConstraint.constant = -300
+        if !self.rover.status {
+            self.activeLabel.text = "Inactive"
+            self.activeLabel.textColor = UIColor.red
+        }
+        self.launchDateLabel.text = Utility.shortString(from: self.rover.launchDate)
+        self.landingDateLabel.text = Utility.shortString(from: self.rover.landingDate)
+        self.totalPhotoCountLabel.text = String(describing: self.rover.photoCount)
     }
     
     func configureGallery() {
@@ -188,7 +207,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
             return String(describing: sol)
         }
         
-        let daysSinceLand = Int(Double(sol) * 1.03)
+        let daysSinceLand = Int(Double(sol) * 1.0274912510416665)
         let landingDate = self.rover.landingDate
         let date = Calendar.current.date(byAdding: .day, value: daysSinceLand, to: landingDate)
         
@@ -196,7 +215,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     }
     
     func earthDay(for sol: Int) -> String {
-        let daysSinceLand = Int(Double(sol) * 1.03)
+        let daysSinceLand = Int(Double(sol) * 1.0274912510416665)
         let landingDate = self.rover.landingDate
         let date = Calendar.current.date(byAdding: .day, value: daysSinceLand, to: landingDate)
         
@@ -229,6 +248,21 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         return adjustedValue
     }
     
+    
+    @IBAction func infoButtonPressed(_ sender: Any) {
+        
+        if self.infoTopLayoutConstraint.constant == 0 {
+            self.infoTopLayoutConstraint.constant = -300
+        } else {
+            self.infoTopLayoutConstraint.constant = 0
+        }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+    }
+    
     @IBAction func settingsButtonPressed(_ sender: Any) {
         
         if self.navigationItem.rightBarButtonItem?.image == #imageLiteral(resourceName: "Settings") {
@@ -243,6 +277,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         UIView.animate(withDuration: 0.3, animations: {
             self.view.layoutIfNeeded()
         })
+    
     }
     
     @IBAction func dateTypePreferenceChanged(_ sender: Any) {
@@ -253,13 +288,12 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         self.settingsButton.title = nil
         self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "Settings")
         self.settingsTopConstraint.constant = -100
-    
         
-    UIView.animate(withDuration: 0.3, animations: {
-    self.view.layoutIfNeeded()
-    })
-    
-    
-    configureSettings()
-}
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        configureSettings()
+        updateGallery()
+    }
 }
