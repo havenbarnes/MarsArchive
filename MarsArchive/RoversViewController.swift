@@ -9,14 +9,15 @@
 import UIKit
 import SceneKit
 
-class RoversViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RoversViewController: UIViewController {
     
     var scene: SCNScene!
     @IBOutlet weak var sceneView: SCNView!
-    var rotateAction: SCNAction!
+    var roverNodes: [SCNNode : String] = [:]
+    var cameraNode: SCNNode!
+
     
-    @IBOutlet weak var tableView: UITableView!
-    var refreshControl: UIRefreshControl!
+    var coverView: UIView!
     
     var rovers: [Rover]!
 
@@ -25,14 +26,18 @@ class RoversViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureScene()
+        self.coverView = UIView(frame: self.view.frame)
+        self.coverView.backgroundColor = UIColor.black
+        self.view.addSubview(self.coverView)
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        DispatchQueue.main.async {
+            print("Configuring")
+            self.configureScene()
+        }
         
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl.addTarget(self, action: #selector(fetchRovers), for: .valueChanged)
-        tableView.addSubview(self.refreshControl)
+        UIView.animate(withDuration: 0.5, delay: 1.0, options: .transitionCrossDissolve, animations: {
+            self.coverView.alpha = 0
+        }, completion: nil)
         
     }
     
@@ -44,33 +49,11 @@ class RoversViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func fetchRovers() {
         self.api.fetchRoversData(completion: {
             rovers in
+                        
+            self.rovers = rovers.sorted(by: { $0.name < $1.name } )
             
-            self.rovers = rovers
-            self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .fade)
-            self.refreshControl.endRefreshing()
+            print(self.rovers)
         })
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.rovers.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RoverCell", for: indexPath) as! RoverCell
-        let rover = self.rovers[indexPath.row]
-        cell.nameLabel.text = rover.name
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        roverSelected(rovers[indexPath.row])
     }
     
     func roverSelected(_ rover: Rover) {
@@ -82,8 +65,3 @@ class RoversViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController!.show(galleryViewController, sender: nil)
     }
 }
-
-class RoverCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-}
-

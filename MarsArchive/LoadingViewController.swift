@@ -26,10 +26,10 @@ class LoadingViewController: UIViewController {
             let roversViewControllerNav = self.instantiate("Main", identifier: "RoversViewControllerNav") as! UINavigationController
             let roversViewController = roversViewControllerNav.viewControllers.first! as! RoversViewController
             roversViewController.rovers = rovers
+            
             self.present(roversViewControllerNav, animated: true, completion: nil)
             
         })
-
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -36,7 +36,7 @@
         <!--Rovers View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="RoversViewController" modalTransitionStyle="crossDissolve" id="BYZ-38-t0r" customClass="RoversViewController" customModule="MarsArchive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoversViewController" id="BYZ-38-t0r" customClass="RoversViewController" customModule="MarsArchive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -48,6 +48,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDG-JO-PKo" userLabel="Scene" customClass="SCNView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Mars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="00j-hh-epb">
                                 <rect key="frame" x="20" y="40" width="334" height="45.666666666666671"/>
@@ -55,40 +56,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LtM-by-6GS" userLabel="Rover Table">
-                                <rect key="frame" x="4" y="736" width="406" height="0.0"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" id="I68-dY-NN9"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="RoverCell" rowHeight="100" id="NP1-WS-aMi" customClass="RoverCell" customModule="MarsArchive" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="406" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NP1-WS-aMi" id="pfb-Cd-zQ1">
-                                            <rect key="frame" x="0.0" y="0.0" width="373" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r01-c8-onc">
-                                                    <rect key="frame" x="15" y="32" width="334" height="36"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="r01-c8-onc" firstAttribute="leading" secondItem="pfb-Cd-zQ1" secondAttribute="leadingMargin" constant="7" id="6bR-BS-ruP"/>
-                                                <constraint firstItem="r01-c8-onc" firstAttribute="centerY" secondItem="pfb-Cd-zQ1" secondAttribute="centerY" id="KPL-eW-iPO"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="r01-c8-onc" secondAttribute="trailing" constant="16" id="vwT-pO-x1d"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <outlet property="nameLabel" destination="r01-c8-onc" id="6ii-J8-jwt"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Rover To Continue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="yMc-wo-G5p">
                                 <rect key="frame" x="20" y="95.666666666666686" width="304" height="21.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
@@ -97,18 +64,16 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="yMc-wo-G5p" secondAttribute="trailing" constant="70" id="0ut-U3-CON"/>
                             <constraint firstAttribute="trailingMargin" secondItem="00j-hh-epb" secondAttribute="trailing" constant="40" id="4Ba-An-ZnH"/>
                             <constraint firstItem="tDG-JO-PKo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bna-Ab-azc"/>
-                            <constraint firstItem="LtM-by-6GS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="SNU-7x-C5n"/>
                             <constraint firstItem="00j-hh-epb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="40" id="eL3-WO-ohF"/>
                             <constraint firstItem="tDG-JO-PKo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="eNX-gp-TQy"/>
                             <constraint firstItem="tDG-JO-PKo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fuF-Pr-H9c"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LtM-by-6GS" secondAttribute="trailing" constant="-16" id="hBV-QZ-746"/>
                             <constraint firstItem="00j-hh-epb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="jym-Ab-pGB"/>
                             <constraint firstItem="tDG-JO-PKo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="lP9-VY-Agg"/>
-                            <constraint firstAttribute="bottom" secondItem="LtM-by-6GS" secondAttribute="bottom" id="sGe-G8-YIc"/>
                             <constraint firstItem="yMc-wo-G5p" firstAttribute="top" secondItem="00j-hh-epb" secondAttribute="bottom" constant="10" id="tG4-Ta-br0"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yMc-wo-G5p" secondAttribute="leading" id="uIc-AU-DPA"/>
                         </constraints>
@@ -117,7 +82,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="sceneView" destination="tDG-JO-PKo" id="6YY-je-OiW"/>
-                        <outlet property="tableView" destination="LtM-by-6GS" id="nQ3-qD-6Br"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -382,7 +346,7 @@
                                     <constraint firstAttribute="width" secondItem="qPG-rV-JSK" secondAttribute="height" multiplier="1:1" id="4Va-lt-t9b"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetching Rover Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZQ-WJ-M1M">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Rover Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZQ-WJ-M1M">
                                 <rect key="frame" x="50" y="398" width="314" height="26.666666666666686"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
