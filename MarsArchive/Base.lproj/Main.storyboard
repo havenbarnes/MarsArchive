@@ -20,7 +20,7 @@
         <scene sceneID="nj6-zR-frb">
             <objects>
                 <navigationController storyboardIdentifier="RoversViewControllerNav" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="1gw-pr-LCw" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJ8-JH-NeU">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NJ8-JH-NeU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.97254901959999995" green="0.52549019610000003" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,13 +56,34 @@
                                 <gestureRecognizers/>
                             </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nF-oH-iR2">
-                                <rect key="frame" x="35" y="36" width="344" height="87"/>
+                                <rect key="frame" x="35.666666666666657" y="36" width="343.33333333333337" height="88"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xiB-l8-Scw">
-                                    <rect key="frame" x="0.0" y="0.0" width="344" height="87"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343.33333333333337" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Mars Archive" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="00j-hh-epb">
+                                            <rect key="frame" x="10" y="8" width="323.33333333333331" height="40"/>
+                                            <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="28"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Rover To Continue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="yMc-wo-G5p">
+                                            <rect key="frame" x="67" y="55.999999999999993" width="209.33333333333331" height="17.333333333333321"/>
+                                            <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="12"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="00j-hh-epb" firstAttribute="top" secondItem="xiB-l8-Scw" secondAttribute="top" constant="8" id="39H-mg-sKI"/>
+                                        <constraint firstItem="yMc-wo-G5p" firstAttribute="top" secondItem="00j-hh-epb" secondAttribute="bottom" constant="8" id="Xv5-Cs-sRt"/>
+                                        <constraint firstItem="00j-hh-epb" firstAttribute="centerX" secondItem="xiB-l8-Scw" secondAttribute="centerX" id="Zrr-Ac-OrG"/>
+                                        <constraint firstItem="yMc-wo-G5p" firstAttribute="centerX" secondItem="00j-hh-epb" secondAttribute="centerX" id="yyM-xx-iEg"/>
+                                    </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="87" id="R9u-MY-Oce"/>
+                                    <constraint firstAttribute="height" constant="88" id="ChB-oI-WVZ"/>
+                                    <constraint firstAttribute="width" constant="343.33333333333337" id="og7-HY-eGW"/>
                                 </constraints>
                                 <blurEffect style="dark"/>
                                 <userDefinedRuntimeAttributes>
@@ -72,33 +93,16 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </visualEffectView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Mars Archive" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="00j-hh-epb">
-                                <rect key="frame" x="45" y="44" width="324" height="40"/>
-                                <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Rover To Continue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="yMc-wo-G5p">
-                                <rect key="frame" x="102" y="92" width="210" height="18"/>
-                                <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="12"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="tDG-JO-PKo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bna-Ab-azc"/>
                             <constraint firstItem="5nF-oH-iR2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="Mot-yf-fT3"/>
-                            <constraint firstItem="00j-hh-epb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="44" id="eL3-WO-ohF"/>
                             <constraint firstItem="tDG-JO-PKo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="eNX-gp-TQy"/>
                             <constraint firstItem="tDG-JO-PKo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fuF-Pr-H9c"/>
-                            <constraint firstItem="00j-hh-epb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l6w-tA-GpU"/>
                             <constraint firstItem="tDG-JO-PKo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="lP9-VY-Agg"/>
                             <constraint firstItem="5nF-oH-iR2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n0k-wD-M7V"/>
-                            <constraint firstItem="yMc-wo-G5p" firstAttribute="top" secondItem="00j-hh-epb" secondAttribute="bottom" constant="8" id="tG4-Ta-br0"/>
-                            <constraint firstItem="5nF-oH-iR2" firstAttribute="width" secondItem="00j-hh-epb" secondAttribute="width" constant="20" id="vIS-Ay-q1l"/>
-                            <constraint firstItem="yMc-wo-G5p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yEV-ns-eZO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tdO-2T-Vyd"/>
@@ -557,7 +561,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Rover Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dZQ-WJ-M1M">
-                                <rect key="frame" x="50" y="424" width="314" height="29"/>
+                                <rect key="frame" x="50" y="424.33333333333326" width="314" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -566,7 +570,7 @@
                                 <rect key="frame" x="189" y="468" width="37" height="37"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE MARS ARCHIVE" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZtW-uz-eud">
-                                <rect key="frame" x="34" y="154" width="347" height="220"/>
+                                <rect key="frame" x="34" y="154.33333333333331" width="347" height="219.99999999999994"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="kGB-fr-mdv"/>
                                 </constraints>

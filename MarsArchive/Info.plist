@@ -68,5 +68,7 @@
 	<array>
 		<string>Michroma.ttf</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Choose &quot;OK&quot; to save Mars Rover photos to your library</string>
 </dict>
 </plist>

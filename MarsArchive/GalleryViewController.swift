@@ -284,15 +284,7 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         UserDefaults.standard.set(self.dayTypeSwitch.isOn, forKey: "datePref")
         UserDefaults.standard.synchronize()
         self.datePref = self.dayTypeSwitch.isOn
-        
-        self.settingsButton.title = nil
-        self.navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "Settings")
-        self.settingsTopConstraint.constant = -100
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-        })
-        
+    
         configureSettings()
         updateGallery()
     }
