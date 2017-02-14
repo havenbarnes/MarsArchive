@@ -19,7 +19,11 @@ class NasaAPI {
     
     var failedAttempts = 0
     
-    static let apiKeyParam = "api_key=7BJC3QBydynBog4ZQ9r2G1XJxpnVkdwwN8tQ6pCB"
+    static let apiKeyParam  = "api_key=7BJC3QBydynBog4ZQ9r2G1XJxpnVkdwwN8tQ6pCB"
+    static let apiKeyParam2 = "api_key=Zhw2p1l4z9ZWx4V3BYpIaGj33Vn8esn7fbRABxC9"
+    static let apiKeyParam3 = "api_key=MLv1J3WzJFFpmfrse7KOZ3fBjzJpzoAPyTs3FLO0"
+    static let apiKeyParam4 = "api_key=MLv1J3WzJFFpmfrse7KOZ3fBjzJpzoAPyTs3FLO0"
+    static let apiKeyParam5 = "api_key=6BBAacuqI5nIezsMEuatqFjLIZIU6y21suJZKF0J"
     
     enum Endpoint: String  {
         case rovers = "https://api.nasa.gov/mars-photos/api/v1/rovers"

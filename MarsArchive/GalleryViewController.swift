@@ -94,7 +94,10 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
     }
     
     func configureSettings() {
-        self.settingsTopConstraint.constant = -100
+        
+        if !self.loaded {
+            self.settingsTopConstraint.constant = -100
+        }
 
         self.datePref = UserDefaults.standard.bool(forKey: "datePref")
         self.dayTypeSwitch.setOn(datePref, animated: false)
@@ -102,10 +105,14 @@ class GalleryViewController: UIViewController, CameraSelectionViewDelegate, UICo
         UIView.animate(withDuration: 0.3, animations: {
             if self.datePref {
                 self.dateTypeLabel.text = "EARTH"
+                self.solLabel.text = self.displayDay(self.selectedSol)
             } else {
                 self.dateTypeLabel.text = "SOL"
+                
+                if self.loaded {
+                    self.solLabel.text = self.displayDay(self.selectedSol)
+                }
             }
-            self.solLabel.text = self.displayDay(self.selectedSol)
         })
     }
     
