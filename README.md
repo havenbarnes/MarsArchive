@@ -1,3 +1,3 @@
 iOS Client for Mars Archive
 
-This is a change that doesn't need to be made
+No, I was wrong! This is a change that does need to be made!
