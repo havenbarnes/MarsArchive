@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (4.2.0)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
-  - SwiftyJSON (3.1.3)
-  - UICountingLabel (1.4.0)
+  - Alamofire (4.7.3)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - SwiftyJSON (4.2.0)
+  - UICountingLabel (1.4.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -13,11 +13,11 @@ DEPENDENCIES:
   - UICountingLabel
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
-  UICountingLabel: ed5ce5b6d5ef278ff40d99cfa49577a30ab0c87b
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  UICountingLabel: faf890b505d96312e324a86718f031fafffb0ccb
 
 PODFILE CHECKSUM: a44fdca968d9da6e00a180bd68a7f72943209ab5
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.4.0

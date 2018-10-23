@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dKT-6T-GfV">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dKT-6T-GfV">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,7 +19,7 @@
             <objects>
                 <navigationController storyboardIdentifier="RoversViewControllerNav" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="1gw-pr-LCw" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NJ8-JH-NeU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.97254901959999995" green="0.52549019610000003" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -47,28 +45,28 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tDG-JO-PKo" userLabel="Scene" customClass="SCNView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                             </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nF-oH-iR2">
-                                <rect key="frame" x="35.666666666666657" y="36" width="343.33333333333337" height="88"/>
+                                <rect key="frame" x="16" y="60" width="343.33333333333331" height="88"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="xiB-l8-Scw">
-                                    <rect key="frame" x="0.0" y="0.0" width="343.33333333333337" height="88"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343.33333333333331" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Mars Archive" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="00j-hh-epb">
-                                            <rect key="frame" x="10" y="8" width="323.33333333333331" height="40"/>
+                                            <rect key="frame" x="9.6666666666666572" y="8" width="323.33333333333337" height="40"/>
                                             <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="28"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select A Rover To Continue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="yMc-wo-G5p">
-                                            <rect key="frame" x="67" y="55.999999999999993" width="209.33333333333331" height="17.333333333333321"/>
+                                            <rect key="frame" x="66.666666666666671" y="56.000000000000007" width="209.33333333333331" height="17.333333333333336"/>
                                             <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -125,11 +123,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gFJ-Ul-gsT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bZW-yf-Vse">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h4Q-60-q5a">
-                                <rect key="frame" x="0.0" y="20" width="414" height="526"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="9fH-9K-Gyu">
                                     <size key="itemSize" width="140" height="140"/>
@@ -146,7 +144,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D0f-fE-5gv" userLabel="Rover ImageView">
-                                                    <rect key="frame" x="2" y="2" width="137" height="137"/>
+                                                    <rect key="frame" x="1.6666666666666714" y="1.6666666666666714" width="137" height="137"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -164,10 +162,10 @@
                                 </cells>
                             </collectionView>
                             <activityIndicatorView opaque="NO" multipleTouchEnabled="YES" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="xsV-hH-Oaa">
-                                <rect key="frame" x="197" y="80" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="168" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZE5-sy-jGo" userLabel="Dashboard">
-                                <rect key="frame" x="0.0" y="546" width="414" height="190"/>
+                                <rect key="frame" x="0.0" y="588" width="375" height="190"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="SOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bl0-aY-ZUF">
                                         <rect key="frame" x="16" y="16" width="41" height="20"/>
@@ -182,13 +180,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="3bs-3l-ffp" customClass="UICountingLabel">
-                                        <rect key="frame" x="65" y="9" width="199" height="41"/>
+                                        <rect key="frame" x="65" y="9" width="160" height="41"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="34"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="eL7-Fm-kes" userLabel="Sol Stepper">
-                                        <rect key="frame" x="304" y="14" width="94" height="29"/>
+                                        <rect key="frame" x="265" y="14" width="94" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="94" id="k3T-ME-1wN"/>
                                         </constraints>
@@ -198,7 +196,7 @@
                                         </connections>
                                     </stepper>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="JQA-Cs-h5Q">
-                                        <rect key="frame" x="14" y="52" width="386" height="31"/>
+                                        <rect key="frame" x="14" y="52" width="347" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.97254901959999995" green="0.52549019610000003" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="maximumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="thumbTintColor" red="0.21635072969543145" green="0.21635072969543145" blue="0.21635072969543145" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -207,7 +205,7 @@
                                         </connections>
                                     </slider>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QlH-Fj-QUN" customClass="CameraSelectionView" customModule="MarsArchive" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="118" width="382" height="64"/>
+                                        <rect key="frame" x="16" y="118" width="343" height="64"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MJP-p8-a1H">
                                             <size key="itemSize" width="66" height="46"/>
@@ -276,16 +274,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKg-FP-XQ7" userLabel="Settings Drop Down">
-                                <rect key="frame" x="0.0" y="64" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MARTIAN  DAY" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxI-KX-J15">
-                                        <rect key="frame" x="42" y="21" width="127" height="18"/>
+                                        <rect key="frame" x="22" y="21" width="127" height="18"/>
                                         <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m4K-hW-09J">
-                                        <rect key="frame" x="183" y="15" width="51" height="31"/>
+                                        <rect key="frame" x="163" y="14.666666666666671" width="51" height="31"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.52549019610000003" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="onTintColor" red="0.45441801603169973" green="0.92720891500000002" blue="0.6501298228474317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <userDefinedRuntimeAttributes>
@@ -299,7 +297,7 @@
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EARTH  DAY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyV-cN-QwI">
-                                        <rect key="frame" x="247" y="21" width="104" height="18"/>
+                                        <rect key="frame" x="227.33333333333337" y="21" width="104" height="18"/>
                                         <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -317,12 +315,12 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0p-X0-U3G" userLabel="Info Dropdown">
-                                <rect key="frame" x="0.0" y="64" width="414" height="125"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="125"/>
                                 <subviews>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9lM-sZ-gFO">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rTu-f8-enU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="dark"/>
@@ -352,13 +350,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Launch Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIQ-0a-egH">
-                                        <rect key="frame" x="15" y="40" width="116.66666666666666" height="20"/>
+                                        <rect key="frame" x="15.000000000000007" y="40" width="116.66666666666669" height="20"/>
                                         <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Landing Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXk-XV-ITT">
-                                        <rect key="frame" x="15" y="68" width="121.33333333333334" height="20"/>
+                                        <rect key="frame" x="14.999999999999993" y="68" width="121.33333333333331" height="20"/>
                                         <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -470,14 +468,14 @@
                         <viewControllerLayoutGuide type="bottom" id="9iZ-st-57j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZAv-Hy-YjB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yB8-i6-5y7">
-                                <rect key="frame" x="0.0" y="40" width="414" height="646"/>
+                                <rect key="frame" x="-4" y="40" width="383" height="722"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="K7Z-Jt-nsf">
-                                <rect key="frame" x="0.0" y="656" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="698" width="375" height="80"/>
                                 <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Ib9-BZ-UwB"/>
@@ -543,20 +541,20 @@
                         <viewControllerLayoutGuide type="bottom" id="aOA-ia-IzS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sz1-LY-jcS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Rover Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="dZQ-WJ-M1M">
-                                <rect key="frame" x="50" y="424.33333333333326" width="314" height="28.666666666666686"/>
+                                <rect key="frame" x="46" y="461.66666666666669" width="283" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Michroma" family="Michroma" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GG7-GQ-bMb">
-                                <rect key="frame" x="189" y="468" width="37" height="37"/>
+                                <rect key="frame" x="169" y="505.33333333333326" width="37" height="37"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE MARS ARCHIVE" textAlignment="center" lineBreakMode="clip" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZtW-uz-eud">
-                                <rect key="frame" x="34" y="154.33333333333331" width="347" height="219.99999999999994"/>
+                                <rect key="frame" x="30" y="191.66666666666663" width="316" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="kGB-fr-mdv"/>
                                 </constraints>
@@ -589,6 +587,6 @@
     </scenes>
     <resources>
         <image name="Info" width="22" height="22"/>
-        <image name="Settings" width="22" height="22"/>
+        <image name="Settings" width="33" height="33"/>
     </resources>
 </document>

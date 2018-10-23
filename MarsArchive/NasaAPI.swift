@@ -43,7 +43,7 @@ class NasaAPI {
         // First, grab rover summary from /rovers endpoint
         fetch(endpoint: NasaAPI.Endpoint.rovers, roverName: nil, photoRequest: false, options: nil, completion: {
             json in
-            
+            guard let json = json else { return }
             // Grab manifest data for each rover in rovers array
             guard json["rovers"].array != nil else  {
                 completion(rovers)
@@ -54,7 +54,7 @@ class NasaAPI {
                 
                 self.fetch(endpoint: NasaAPI.Endpoint.manifest, roverName: roverJSON["name"].string!, photoRequest: false, options: nil, completion: {
                     roverManifestJSON in
-                    
+                    guard let roverManifestJSON = roverManifestJSON else { return }
                     
                     do {
                         try rovers.append(Rover(json: roverManifestJSON["photo_manifest"]))
@@ -95,6 +95,7 @@ class NasaAPI {
         fetch(endpoint: NasaAPI.Endpoint.rovers, roverName: rover.name, photoRequest: true, options: options, completion: {
             json in
             
+            guard let json = json else { return }
             guard json["photos"].array != nil else {
                 completion(photos)
                 return
@@ -111,7 +112,7 @@ class NasaAPI {
         })
     }
     
-    func fetch(endpoint: Endpoint, roverName: String?, photoRequest: Bool, options: [Options : Any]?, completion: @escaping ((JSON) throws -> Void)) {
+    func fetch(endpoint: Endpoint, roverName: String?, photoRequest: Bool, options: [Options : Any]?, completion: @escaping ((JSON?) throws -> Void)) {
         
         let url = self.url(from: endpoint, roverName: roverName, photoRequest: photoRequest, options: options)
         
@@ -119,9 +120,10 @@ class NasaAPI {
         
         Alamofire.request(url)
             .responseJSON { response in
-                
-                let json = JSON(data: response.data!)
-                try? completion(json)
+                if (response.data != nil) {
+                    let json = try? JSON(data: response.data!)
+                    try? completion(json ?? nil)
+                }
         }
         
     }

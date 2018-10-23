@@ -24,17 +24,16 @@ extension RoversViewController {
         
         // Sphere
         let sphereNode = self.scene.rootNode.childNodes[0]
-        
+
         // Camera
         self.cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
         self.scene.rootNode.addChildNode(cameraNode)
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 25)
         cameraNode.camera?.motionBlurIntensity = 0.1
-        
+
         // Material
         let material = sphereNode.geometry?.firstMaterial
-        material?.shininess = 10.0
         material?.lightingModel = SCNMaterial.LightingModel.physicallyBased
         material?.diffuse.contents = UIImage(named: "mars_map.jpg")
         material?.reflective.intensity = 0.0
@@ -105,7 +104,6 @@ extension RoversViewController {
     }
     
     func configureRoverLabels() {
-        
         var index = 0
         
         for coords in roverLocations {

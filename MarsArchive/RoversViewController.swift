@@ -27,7 +27,7 @@ class RoversViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.coverView = UIView(frame: self.view.frame)
         self.coverView.backgroundColor = UIColor.black
         self.view.addSubview(self.coverView)
